@@ -19,6 +19,7 @@ then
     then
         echo "Diff $diff is greater than allowed max $maxdiff"
         echo "Shutting Down Machine..."
+        shutdown -h now
     else
         echo "Check OK."
     fi
