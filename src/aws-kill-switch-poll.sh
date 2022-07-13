@@ -13,7 +13,7 @@ cd /root/git/aws-kill-switch
 git reset --hard
 
 # get any changes
-git pull
+git pull --tags origin master
 
 # write epoch time to text file
 date +%s > /root/git/aws-kill-switch/src/graylog-aws.log
