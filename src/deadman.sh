@@ -1,11 +1,13 @@
 # Get timestamp of last ping
 lastping=$(curl https://raw.githubusercontent.com/drewmmiranda/aws-kill-switch/master/src/graylog-aws.log)
 
-# get diff
+# current date utime timestamp
 curping=$(date +%s)
 
+# get diff
 diff=$(($curping-$lastping))
 
+# diff in seconds
 maxdiff=1500
 
 if [ $lastping -gt 0 ]
