@@ -33,3 +33,22 @@ This script is designed to run on an AWS instance (VM).
 2. Fetches contents of file that above script commits to
 3. Compares fetched value with current unix epoch time
 4. IF difference (in seconds) is greater than configured max, shutdown instance (`shutdown -h now`)
+
+## Installing
+
+1. Setup `aws-kill-switch-poll.sh` on the NON aws VM (e.g. on prem VM)
+    1. Create directory `/root/git`
+    2. Git Clone this repo to this directory, which will create `/root/git/aws-kill-switch`
+    3. Copy `aws-kill-switch-poll.sh`
+        * from `/root/git/aws-kill-switch/src`
+        * to `/root/git`
+            * NOTE: this is done to ensure the script isn't changed while running and to avoid accidentally breaking the script
+    4. Add a line to crontab
+        * `*/5 * * * * /root/git/aws-kill-switch-poll.sh >/dev/null 2>&1`
+            * NOTE: this runs once every 5 minutes, but can be customzied to suite your needs
+    5. At this point `graylog-aws.log` will be updated each time the cron job executes
+2. Setup `deadman.sh` on AWS instance
+    1. Copy `deadman.sh` to /root
+    2. Make executable via `chmod +x deadman.sh`
+    3. Add to crontab
+    
