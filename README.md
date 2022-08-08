@@ -45,7 +45,7 @@ Prerequisites:
     * `git config --global user.email "you@example.com"`
     * `git config --global user.name "Your Name"`
 * Git credential helper configured to 'store'
-    * `git config credential.helper store`
+    * `git config --system credential.helper store`
 * Github Personal Access Token
     * Via Github / Settings / Developer Settings / Personal access tokens
         * This is required in order to authenticate using an account with MFA/2FA enabled
