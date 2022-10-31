@@ -54,6 +54,7 @@ Instructions:
 
 1. Create directory `/root/git`
 2. Git Clone this repo to this directory, which will create `/root/git/aws-kill-switch`
+    * `git clone https://....`
     * NOTE: run `git push` at at least once to save the credential
 3. Copy `aws-kill-switch-poll.sh`
     * from `/root/git/aws-kill-switch/src`
